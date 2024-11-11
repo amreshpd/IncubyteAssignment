@@ -57,12 +57,12 @@ class IncubyteAssignmentApplicationTests {
 	@Test
     public void testNegativeNumberException() {
         Exception exception = assertThrows(NegativeNumberException.class, () -> addition.add("1,-2"));
-        assertEquals("negative numbers not allowed", exception.getMessage());
+        assertEquals("negative numbers not allowed [-2]", exception.getMessage());
     }
 	@Test
     public void testMultipleNegativeNumbersException() {
         Exception exception = assertThrows(NegativeNumberException.class, () -> addition.add("1,-2,-3"));
-        assertEquals("negative numbers not allowed", exception.getMessage());
+        assertEquals("negative numbers not allowed [-2, -3]", exception.getMessage());
     }
 	@AfterAll
 	public static void stepDown() {

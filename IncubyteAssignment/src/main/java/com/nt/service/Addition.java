@@ -1,5 +1,8 @@
 package com.nt.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -26,21 +29,18 @@ public class Addition {
 			}
 
 			String[] numberArray = numbers.split("[,\n]");
-			StringBuilder negatives = new StringBuilder();
+			List<Integer> negatives = new ArrayList<>();
 
 			for (String num : numberArray) {
-				int number = Integer.parseInt(num);
-				if (number < 0) {
-					if (negatives.length() > 0) {
-						negatives.append(",");
-					}
-					negatives.append(number);
+				int number = Integer.parseInt(num.trim());
+				if (number < 0) {					
+					negatives.add(number);
 				} else
 					sum += number;
 			}
 
-			if (negatives.length() > 0) {
-				throw new NegativeNumberException("negative numbers not allowed");
+			if (!negatives.isEmpty()) {
+				throw new NegativeNumberException("negative numbers not allowed "+negatives);
 			}
 		}
 		return sum;
