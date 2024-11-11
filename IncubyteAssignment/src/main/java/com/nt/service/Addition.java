@@ -9,6 +9,8 @@ public class Addition {
 		int sum=0;
 		if(numbers.isEmpty()) {
 			sum=0;
+		}else {
+			sum=Integer.parseInt(numbers);
 		}
 		return sum;
 	}
