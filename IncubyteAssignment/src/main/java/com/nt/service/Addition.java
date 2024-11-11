@@ -5,9 +5,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class Addition {
 
-	public void add(int num1,int num2) {
-		int result=num1+num2;
-		System.out.println(result);
-		
+	public int add(String numbers) {
+		int sum=0;
+		if(numbers.isEmpty()) {
+			sum=0;
+		}
+		return sum;
 	}
 }

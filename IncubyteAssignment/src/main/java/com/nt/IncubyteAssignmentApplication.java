@@ -12,7 +12,7 @@ public class IncubyteAssignmentApplication {
 	public static void main(String[] args) {
 		ConfigurableApplicationContext ctx = SpringApplication.run(IncubyteAssignmentApplication.class, args);
 	Addition add = ctx.getBean(Addition.class);
-	add.add(10, 20);
+     System.out.println(add.add("0"));
 	}
 
 }
