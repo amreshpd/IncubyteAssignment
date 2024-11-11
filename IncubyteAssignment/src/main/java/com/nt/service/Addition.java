@@ -17,15 +17,15 @@ public class Addition {
 			sum = 0;
 		} else {
 
-			String delimiter = ",|\n"; // default delimiters: comma and newline
+			
 			if (numbers.startsWith("//")) {
 				int delimiterIndex = numbers.indexOf("\n");
-				delimiter = numbers.substring(2, delimiterIndex);
+			String	delimiter = numbers.substring(2, delimiterIndex);
 				numbers = numbers.substring(delimiterIndex + 1);
 				numbers = numbers.replace(delimiter, ",");
 			}
 
-			String[] numberArray = numbers.split(delimiter);
+			String[] numberArray = numbers.split("[,\n]");
 			StringBuilder negatives = new StringBuilder();
 
 			for (String num : numberArray) {

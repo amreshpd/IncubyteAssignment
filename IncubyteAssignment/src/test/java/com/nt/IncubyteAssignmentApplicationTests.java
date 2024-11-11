@@ -48,6 +48,10 @@ class IncubyteAssignmentApplicationTests {
 		assertEquals(11, addition.add("1\n2,3\n5"));
 	}
 
+	@Test
+    public void testCustomDelimiter() throws Exception {
+        assertEquals(3, addition.add("//;\n1;2"));
+    }
 	@AfterAll
 	public static void stepDown() {
 		addition = null;
