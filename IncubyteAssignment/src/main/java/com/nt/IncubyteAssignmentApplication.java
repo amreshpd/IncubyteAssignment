@@ -14,6 +14,7 @@ public class IncubyteAssignmentApplication {
 	Addition add = ctx.getBean(Addition.class);
 	System.out.println(add.add(""));
 	System.out.println(add.add("1"));
+	System.out.println(add.add("1,5"));
 	}
 
 }

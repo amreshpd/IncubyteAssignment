@@ -6,11 +6,15 @@ import org.springframework.stereotype.Service;
 public class Addition {
 
 	public int add(String numbers) {
-		int sum=0;
-		if(numbers.isEmpty()) {
-			sum=0;
-		}else {
-			sum=Integer.parseInt(numbers);
+		int sum = 0;
+		if (numbers.isEmpty()) {
+			sum = 0;
+		} else {
+			String[] numberArray = numbers.split(",");
+
+			for (String num : numberArray) {
+				sum += Integer.parseInt(num);
+			}			
 		}
 		return sum;
 	}
