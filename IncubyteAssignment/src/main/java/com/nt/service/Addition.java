@@ -10,6 +10,7 @@ public class Addition {
 		if (numbers.isEmpty()) {
 			sum = 0;
 		} else {
+			numbers = numbers.replace("\n", ",");
 			String[] numberArray = numbers.split(",");
 
 			for (String num : numberArray) {
