@@ -1,14 +1,17 @@
 package com.nt.service;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import com.nt.exception.NegativeNumberException;
 
 @Service
+@RestControllerAdvice
 public class Addition {
 
-	public int add(String numbers) {
+	@ExceptionHandler(value = NegativeNumberException.class)
+	public int add(String numbers) throws Exception {
 		int sum = 0;
 		if (numbers.isEmpty()) {
 			sum = 0;
@@ -37,7 +40,7 @@ public class Addition {
 			}
 
 			if (negatives.length() > 0) {
-				throw new IllegalArgumentException("negative numbers not allowed " + negatives.toString());
+				throw new NegativeNumberException("negative numbers not allowed ");
 			}
 		}
 		return sum;
