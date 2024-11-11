@@ -36,7 +36,10 @@ class IncubyteAssignmentApplicationTests {
     public void testTwoNumbers() throws Exception {
         assertEquals(9, addition.add("4,5"));
     }
-
+	@Test
+    public void testUnlimitedAmountOfNumbers() throws Exception {
+        assertEquals(17, addition.add("8,2,3,4"));
+    }
 	
 	@AfterAll
 	public static void stepDown() {
