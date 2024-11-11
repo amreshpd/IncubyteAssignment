@@ -32,6 +32,10 @@ class IncubyteAssignmentApplicationTests {
         int expected=1;
         assertEquals(expected, actual);
     }
+	@Test
+    public void testTwoNumbers() throws Exception {
+        assertEquals(9, addition.add("4,5"));
+    }
 
 	
 	@AfterAll
