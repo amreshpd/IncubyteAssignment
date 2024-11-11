@@ -1,12 +1,14 @@
 package com.nt;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.nt.exception.NegativeNumberException;
 import com.nt.service.Addition;
 
 @SpringBootTest
@@ -51,6 +53,11 @@ class IncubyteAssignmentApplicationTests {
 	@Test
     public void testCustomDelimiter() throws Exception {
         assertEquals(3, addition.add("//;\n1;2"));
+    }
+	@Test
+    public void testNegativeNumberException() {
+        Exception exception = assertThrows(NegativeNumberException.class, () -> addition.add("1,-2"));
+        assertEquals("negative numbers not allowed", exception.getMessage());
     }
 	@AfterAll
 	public static void stepDown() {

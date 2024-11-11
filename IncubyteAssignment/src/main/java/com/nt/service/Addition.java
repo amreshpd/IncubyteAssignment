@@ -40,7 +40,7 @@ public class Addition {
 			}
 
 			if (negatives.length() > 0) {
-				throw new NegativeNumberException("negative numbers not allowed ");
+				throw new NegativeNumberException("negative numbers not allowed");
 			}
 		}
 		return sum;
